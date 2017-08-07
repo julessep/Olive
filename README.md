@@ -1,2 +1,1 @@
-#Frontend Capstone
 # frontend-capstone

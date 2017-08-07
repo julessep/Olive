@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default" ng-controller="NavController">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/">Olive Recipe Logo</a>
+    </div>
+
+    <!-- search -->
+  <!--   <div class="col-xs-6 searchBox" ng-show="isLoggedIn">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search by name ingredient, diet type..." ng-model="searchText">
+       <span class="input-group-btn">
+          <button> search </button>
+        </span>
+      </div>
+    </div> -->
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <!-- <li ng-show="isLoggedIn"><a ng-href="#!/recipes/new">Saved Recipes</a></li> -->
+        <!-- <li ng-show="isLoggedIn"><a ng-href="#!/recipes/view">Recipe Box</a></li> -->
+        <li ng-show="isLoggedIn"><a ng-href="#!/logout" ng-click="logout()">Logout</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
