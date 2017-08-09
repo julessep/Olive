@@ -13,8 +13,6 @@ console.log("SavedRecipe ctrl loaded");
     fetchSaved();
   });
 
-
-
 function fetchSaved() {
   let savedArr = [];
   console.log("Fetch");
@@ -25,6 +23,7 @@ function fetchSaved() {
     Object.keys(savedData).forEach( (key) => {
       savedData[key].id = key;
       savedArr.push(savedData[key]);
+      console.log(key);
     });
     $scope.savedRecipes = savedArr;
     console.log($scope.savedRecipes);
@@ -34,4 +33,17 @@ function fetchSaved() {
   });
 }
 
+$scope.deleteSaved = (savedId) => {
+  console.log("delete called", savedId);
+  RecipeFactory.deleteSavedRecipe(savedId)
+    .then((data) => {
+        console.log("removed", data);
+        // fetchSaved(currentUser);
+    });
+};
+// $scope.saveRecipeBox = (savedId) => {
+//     savedId.savedId = 
+//         RecipeFactory.setSavedId(savedId);
+//         console.log("savedId in saved controller", savedId);
+//     };
 });

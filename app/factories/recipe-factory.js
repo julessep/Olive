@@ -2,6 +2,7 @@
 
 olive.factory("RecipeFactory", function($q, $http, FirebaseUrl, Food2ForkUrl, APICreds) {
 
+let currentSavedId = "";
 let currentRecipe = {};
 // ********** from API ***********
 // need to fetch recipes from DB for searching
@@ -45,6 +46,14 @@ let getCurrentRecipe = () => {
   return currentRecipe;
 };
 
+  // let setSavedId = (savedId) => {
+  //   currentSavedId = savedId;
+  //   console.log("?", currentSavedId);
+  // };
+
+  // let getSavedId = () => {
+  //   return currentSavedId;
+  // };
 // ****** from Firebase ******
 
 let getSavedList = (userId) => {
@@ -74,12 +83,29 @@ let postSaveRecipe = (newSave) => {
   });
 };
 
+let deleteSavedRecipe = (savedId) => {
+console.log("savedId", savedId);
+return $q( (resolve, reject) => {
+  if (savedId) {
+    $http.delete(`${FirebaseUrl}saved/${savedId}.json`)
+    .then( (data) => {
+      resolve(data);
+    })
+    .catch( (err) => {
+      reject(err);
+    });
+  } else {
+    console.log("No id passed in");
+  }
+});
+};
 
 
 
 
 
 
-  return {getSingleRecipe, searchRecipes, postSaveRecipe, getSavedList};
+
+  return {getSingleRecipe, searchRecipes, postSaveRecipe, getSavedList, deleteSavedRecipe};
 });
 
