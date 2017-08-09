@@ -5,16 +5,16 @@ let olive = angular.module("Olive", ["ngRoute"])
 .constant("Food2ForkUrl", "http://food2fork.com/api/");
 
 let isAuth = (UserFactory)  => {
-    return new Promise( (resolve, reject) => {
-        UserFactory.isAuthenticated()
-        .then( (userBoolean) => {
-            if (userBoolean) {
-                resolve();
-            } else {
-                reject();
-            }
-        });
+  return new Promise( (resolve, reject) => {
+    UserFactory.isAuthenticated()
+      .then( (userBoolean) => {
+        if (userBoolean) {
+            resolve();
+        } else {
+            reject();
+        }
     });
+  });
 };
 
 olive.config(($routeProvider)=>{
@@ -25,8 +25,18 @@ olive.config(($routeProvider)=>{
   })
   .when('/browse/all', {
       templateUrl: 'partials/home-browse.html',
-      controller: 'RecipeController',
+      controller: 'HomeBrowseController',
       resolve: {isAuth}
+  })
+  .when('/browse/:recipe_id', {
+    templateUrl: 'partials/single-recipe.html',
+    controller: 'SingleRecipeController',
+    resolve: {isAuth}
+  })
+  .when('/recipes/saved', {
+    templateUrl: 'partials/saved-recipes.html',
+    controller: 'SavedRecipesController',
+    resolve: {isAuth}
   })
   .otherwise('/');
 });

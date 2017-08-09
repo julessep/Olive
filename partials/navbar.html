@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default" ng-controller="NavController">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#/">Olive Recipe Logo</a>
+    <div class="navbar-header header">
+      <a class="navbar-brand" href="#!/browse/all">Olive Recipe Logo</a>
     </div>
 
     <!-- search -->
@@ -17,10 +17,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li ng-show="isLoggedIn"><a ng-href="#!/recipes/new">Saved Recipes</a></li> -->
+        <li ng-show="isLoggedIn"><a ng-href="#!/recipes/saved">Saved Recipes</a></li>
         <!-- <li ng-show="isLoggedIn"><a ng-href="#!/recipes/view">Recipe Box</a></li> -->
         <li ng-show="isLoggedIn"><a ng-href="#!/logout" ng-click="logout()">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+  </nav>

@@ -2,18 +2,21 @@
 
 olive.factory("RecipeFactory", function($q, $http, FirebaseUrl, Food2ForkUrl, APICreds) {
 
+let currentRecipe = {};
 // ********** from API ***********
 // need to fetch recipes from DB for searching
 // need to fetch trending recipes to populate DOM upon user login
 
 // just to get the single recipe after initial search
-let getRecipe = (recipe_id) => {
+let getSingleRecipe = (recipe_id) => {
   return $q( ( resolve, reject) => {
     // do I need to put in the user search here or can I do it in a different function
-    $http.get(`http://localhost:5000/api/search/${recipe_id}`)
+    $http.get(`http://localhost:5000/api/get/${recipe_id}`)
       .then( (recipeData) => {
-        console.log(recipeData.data.recipes);
-        resolve(recipeData.data.recipes);
+        // how do I get the recipe id?
+        currentRecipe = recipeData.data.recipe;
+        console.log("current recipe?", currentRecipe);
+        resolve(recipeData);
       })
       .catch( (err) => {
         console.log("oops", err);
@@ -28,7 +31,7 @@ let searchRecipes = (searchText) => {
     // do I need to put in the user search here or can I do it in a different function
     $http.get(`http://localhost:5000/api/search/'${searchText}'`)
       .then( (recipeData) => {
-        console.log(recipeData.data.recipes);
+        // console.log(recipeData.data.recipes);
         resolve(recipeData.data.recipes);
       })
       .catch( (err) => {
@@ -37,31 +40,46 @@ let searchRecipes = (searchText) => {
     });
   });
 };
-  return {getRecipe, searchRecipes};
-});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let getCurrentRecipe = () => {
+  return currentRecipe;
+};
 
 // ****** from Firebase ******
+
+let getSavedList = (userId) => {
+  console.log("userId", userId);
+  return $q( (resolve, reject) => {
+    $http.get(`${FirebaseUrl}saved.json?orderBy="uid"&equalTo="${userId}"`)
+    .then( (recipeData) => {
+      resolve(recipeData);
+    })
+    .catch( (err) => {
+      console.log("error saved list fb", err);
+      reject(err);
+    });
+  });
+};
+
+let postSaveRecipe = (newSave) => {
+  return $q( (resolve, reject) => {
+    $http.post(`${FirebaseUrl}saved.json`,
+      angular.toJson(newSave))
+    .then( (saveData) => {
+      resolve(saveData);
+    })
+    .catch( (err) => {
+      reject(err);
+    });
+  });
+};
+
+
+
+
+
+
+
+  return {getSingleRecipe, searchRecipes, postSaveRecipe, getSavedList};
+});
+
