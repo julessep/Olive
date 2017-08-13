@@ -3,3 +3,4 @@ lib/.sass-cache
 app/values/fb-creds.js
 app/values/api-creds.js
 css/
+lib/server.js

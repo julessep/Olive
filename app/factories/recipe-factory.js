@@ -56,49 +56,50 @@ let getCurrentRecipe = () => {
   // };
 // ****** from Firebase ******
 
-let getSavedList = (userId) => {
-  console.log("userId", userId);
-  return $q( (resolve, reject) => {
-    $http.get(`${FirebaseUrl}saved.json?orderBy="uid"&equalTo="${userId}"`)
-    .then( (recipeData) => {
-      resolve(recipeData);
-    })
-    .catch( (err) => {
-      console.log("error saved list fb", err);
-      reject(err);
-    });
-  });
-};
+// ******This code is from the beginning before the I deleted my project. I'm just using it as an example for starting again.
+// let getSavedList = (userId) => {
+//   console.log("userId", userId);
+//   return $q( (resolve, reject) => {
+//     $http.get(`${FirebaseUrl}saved.json?orderBy="uid"&equalTo="${userId}"`)
+//     .then( (recipeData) => {
+//       resolve(recipeData);
+//     })
+//     .catch( (err) => {
+//       console.log("error saved list fb", err);
+//       reject(err);
+//     });
+//   });
+// };
 
-let postSaveRecipe = (newSave) => {
-  return $q( (resolve, reject) => {
-    $http.post(`${FirebaseUrl}saved.json`,
-      angular.toJson(newSave))
-    .then( (saveData) => {
-      resolve(saveData);
-    })
-    .catch( (err) => {
-      reject(err);
-    });
-  });
-};
+// let postSaveRecipe = (newSave) => {
+//   return $q( (resolve, reject) => {
+//     $http.post(`${FirebaseUrl}saved.json`,
+//       angular.toJson(newSave))
+//     .then( (saveData) => {
+//       resolve(saveData);
+//     })
+//     .catch( (err) => {
+//       reject(err);
+//     });
+//   });
+// };
 
-let deleteSavedRecipe = (savedId) => {
-console.log("savedId", savedId);
-return $q( (resolve, reject) => {
-  if (savedId) {
-    $http.delete(`${FirebaseUrl}saved/${savedId}.json`)
-    .then( (data) => {
-      resolve(data);
-    })
-    .catch( (err) => {
-      reject(err);
-    });
-  } else {
-    console.log("No id passed in");
-  }
-});
-};
+// let deleteSavedRecipe = (savedId) => {
+// console.log("savedId", savedId);
+// return $q( (resolve, reject) => {
+//   if (savedId) {
+//     $http.delete(`${FirebaseUrl}saved/${savedId}.json`)
+//     .then( (data) => {
+//       resolve(data);
+//     })
+//     .catch( (err) => {
+//       reject(err);
+//     });
+//   } else {
+//     console.log("No id passed in");
+//   }
+// });
+// };
 
 
 
