@@ -42,6 +42,21 @@ let searchRecipes = (searchText) => {
   });
 };
 
+let getTrendingRecipes = () => {
+  return $q( ( resolve, reject) => {
+    // do I need to put in the user search here or can I do it in a different function
+    $http.get(`http://localhost:5000/api/search/'t'`)
+      .then( (recipeData) => {
+        console.log(recipeData.data.recipes);
+        resolve(recipeData.data.recipes);
+      })
+      .catch( (err) => {
+        console.log("oops", err);
+        reject(err);
+    });
+  });
+};
+
 let getCurrentRecipe = () => {
   return currentRecipe;
 };
@@ -107,6 +122,6 @@ return $q( (resolve, reject) => {
 
 
 
-  return {getSingleRecipe, searchRecipes, postSaveRecipe, getSavedList, deleteSavedRecipe};
+  return {getTrendingRecipes, getSingleRecipe, searchRecipes, postSaveRecipe, getSavedList, deleteSavedRecipe};
 });
 

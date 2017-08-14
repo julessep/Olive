@@ -9,11 +9,26 @@ olive.controller("HomeBrowseController", function($scope, $window, RecipeFactory
   .then( (user) => {
     console.log("user status", user);
     currentUser = UserFactory.getUser();
+    $scope.fetchTrendingRecipes();
   });
 
   $scope.searchText = "";
 
-
+  $scope.fetchTrendingRecipes = () => {
+    console.log("trending recipes called");
+    let trendsArr = [];
+    RecipeFactory.getTrendingRecipes()
+    .then( (recipes) => {
+      angular.forEach(recipes, function (obj){
+        trendsArr.push(obj);
+      });
+    console.log(trendsArr);
+    $scope.recipes = trendsArr;
+    })
+    .catch( (err) => {
+      console.log("error!", err);
+    });
+  };
 
 // searchs API by keyword
   $scope.searchAllRecipes = () => {
