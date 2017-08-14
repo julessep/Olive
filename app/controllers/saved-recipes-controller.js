@@ -11,6 +11,7 @@ console.log("SavedRecipe ctrl loaded");
     console.log("user status", user);
     currentUser = UserFactory.getUser();
     fetchSaved();
+    // $scope.deleteSaved();
   });
 
 function fetchSaved() {
@@ -31,6 +32,7 @@ function fetchSaved() {
   .catch( (err) => {
     console.log("can't fetch saved recipes", err);
   });
+
 }
 
 $scope.deleteSaved = (savedId) => {
@@ -38,8 +40,13 @@ $scope.deleteSaved = (savedId) => {
   RecipeFactory.deleteSavedRecipe(savedId)
     .then((data) => {
         console.log("removed", data);
-        // fetchSaved(currentUser);
+        fetchSaved(currentUser);
     });
+};
+
+$scope.viewRecipe = (recipeId) => {
+      console.log("viewRecipe clicked");
+  $window.location.href = `#!/saved/${recipeId}`;
 };
 // $scope.saveRecipeBox = (savedId) => {
 //     savedId.savedId = 
