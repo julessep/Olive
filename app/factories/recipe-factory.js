@@ -5,8 +5,6 @@ olive.factory("RecipeFactory", function($q, $http, FirebaseUrl, Food2ForkUrl, AP
 let currentSavedId = "";
 let currentRecipe = {};
 // ********** from API ***********
-// need to fetch recipes from DB for searching
-// need to fetch trending recipes to populate DOM upon user login
 
 // just to get the single recipe after initial search
 let getSingleRecipe = (recipe_id) => {
@@ -26,7 +24,7 @@ let getSingleRecipe = (recipe_id) => {
   });
 };
 
-// user searchs by keyword 
+// user search by keyword 
 let searchRecipes = (searchText) => {
   return $q( ( resolve, reject) => {
     // do I need to put in the user search here or can I do it in a different function
@@ -71,7 +69,6 @@ let getCurrentRecipe = () => {
   // };
 // ****** from Firebase ******
 
-// ******This code is from the beginning before the I deleted my project. I'm just using it as an example for starting again.
 let getSavedList = (userId) => {
   console.log("userId", userId);
   return $q( (resolve, reject) => {
@@ -115,12 +112,6 @@ return $q( (resolve, reject) => {
   }
 });
 };
-
-
-
-
-
-
 
   return {getTrendingRecipes, getSingleRecipe, searchRecipes, postSaveRecipe, getSavedList, deleteSavedRecipe};
 });
