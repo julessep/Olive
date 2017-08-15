@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jules</title>
+  <!-- <link rel="stylesheet" type="text/css" href="./lib/node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="/lib/node_modules/materialize-css/dist/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body ng-app="Olive">
+
+ <div ng-include="'partials/navbar.html'"></div>
+
+ <div id="pageWrapper" class="container" ng-view>
+  </div>
+
+<!-- third-party scripts -->
+  <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
+   <script type="text/javascript" src="lib/node_modules/bootstrap/dist/js/bootstrap.min.js"> 
+  </script>
+  <script type="text/javascript" src="lib/node_modules/materialize-css/js"></script>
+  <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+<!-- app files -->
+  <script type="text/javascript" src="app/app.js"></script>
+<!-- providers -->
+  <script type="text/javascript" src="app/values/fb-creds.js"></script>
+  <script type="text/javascript" src="app/values/api-creds.js"></script>
+
+  <script type="text/javascript" src="app/factories/user-factory.js"></script>
+  <script type="text/javascript" src="app/factories/filter-factory.js"></script>
+  <script type="text/javascript" src="app/factories/recipe-factory.js"></script>
+<!-- controllers -->
+  <script type="text/javascript" src="app/controllers/user-controller.js"></script>
+  <script type="text/javascript" src="app/controllers/nav-controller.js"></script>
+  <script type="text/javascript" src="app/controllers/home-browse-controller.js"></script>
+  <script type="text/javascript" src="app/controllers/single-recipe-view-controller.js"></script>
+  <script type="text/javascript" src="app/controllers/saved-recipes-controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<h2>Single Recipe View</h2>
+<p>{{recipe.publisher}}</p>
+<img src={{recipe.image_url}}>  
+  <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a>
+<h3>{{recipe.title}}</h3>
+
+<div ng-repeat="ingredient in ingredients">
+  <p>{{ingredient}}</p>
+</div>
+<a href={{recipe.source_url}} target="_blank">directions</a>
