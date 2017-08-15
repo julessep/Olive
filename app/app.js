@@ -37,6 +37,11 @@ olive.config(($routeProvider)=>{
     templateUrl: 'partials/saved-recipes.html',
     controller: 'SavedRecipesController',
     resolve: {isAuth}
+  })  
+  .when('/saved/:recipe_id', {
+    templateUrl: 'partials/single-recipe.html',
+    controller: 'SingleRecipeController',
+    resolve: {isAuth}
   })
   .otherwise('/');
 });
