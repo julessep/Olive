@@ -8,54 +8,22 @@
     </span>
   </div>
 </div>
-   
-   <!-- put recipe.recipe_id under link that goes to single recipe -->
-<!-- <div class="card col-12 h-90">
-  <div class="card-block">
-    <div class="card-columns">
-      <div class="col-12" ng-repeat="recipe in recipes">
-      <img src={{recipe.image_url}}>
-      <a ng-click= "viewRecipe(recipe.recipe_id)">single recipe</a>
-      <h4 class="card-title capitalize title">{{recipe.title}}</h4>
-    </div>
-  </div>
-</div>
-</div> -->
 
 <div class="row">
   <div class="col s12 m6">
-    <a ng-click= "viewRecipe(recipe.recipe_id)">
+    <div class="col-12" ng-repeat="recipe in recipes">
       <div class="card">
-      <div class="col-12" ng-repeat="recipe in recipes">
-        <div class="card-image">
-          <img src={{recipe.image_url}}>
-          <span class="card-title">{{recipe.title}}</span>
-    </a><!--link to single view-->
-          <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a>
-        </div>
-        <div class="card-content">
-          <p> {{recipe.publisher}} </p>
-        </div>
-        </div>
-      </div> <!--card-->
-  </div><!--column-->
-</div><!--row-->
-
-<div class="row">
-  <div class="col s12 m6">
-    <a ng-click= "viewRecipe(recipe.recipe_id)">
-      <div class="card">
-      <div class="col-12" ng-repeat="recipe in recipes">
-        <div class="card-image">
-          <img src={{recipe.image_url}}>
-          <span class="card-title">{{recipe.title}}</span>
-    </a><!--link to single view-->
-          <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a>
-        </div>
-        <div class="card-content">
-          <p> {{recipe.publisher}} </p>
-        </div>
-        </div>
-      </div> <!--card-->
+        <a ng-click= "viewRecipe(recipe.recipe_id)">
+            <div class="card-image">
+                  <img src={{recipe.image_url}}>
+                  <span class="card-title">{{recipe.title}}</span>
+                  <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a>
+            </div>
+          <div class="card-content">
+                <p> {{recipe.publisher}} </p>
+          </div>
+        </a><!--link to single view-->
+      </div> <!--card -->
+    </div> <!--ng-repeat-->
   </div><!--column-->
 </div><!--row-->
