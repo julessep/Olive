@@ -11,7 +11,7 @@ console.log("SavedRecipe ctrl loaded");
     console.log("user status", user);
     currentUser = UserFactory.getUser();
     fetchSaved();
-    // $scope.deleteSaved();
+    $scope.deleteSaved();
   });
 
 function fetchSaved() {
@@ -24,7 +24,7 @@ function fetchSaved() {
     Object.keys(savedData).forEach( (key) => {
       savedData[key].id = key;
       savedArr.push(savedData[key]);
-      console.log(key);
+      // console.log(key);
     });
     $scope.savedRecipes = savedArr;
     console.log($scope.savedRecipes);
@@ -48,6 +48,8 @@ $scope.viewRecipe = (recipeId) => {
       console.log("viewRecipe clicked");
   $window.location.href = `#!/saved/${recipeId}`;
 };
+
+
 // $scope.saveRecipeBox = (savedId) => {
 //     savedId.savedId = 
 //         RecipeFactory.setSavedId(savedId);
