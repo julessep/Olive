@@ -43,7 +43,7 @@ let searchRecipes = (searchText) => {
 let getTrendingRecipes = () => {
   return $q( ( resolve, reject) => {
     // do I need to put in the user search here or can I do it in a different function
-    $http.get(`http://localhost:5000/api/search/'t'`)
+    $http.get(`http://localhost:5000/api/search/'taco'`)
       .then( (recipeData) => {
         console.log(recipeData.data.recipes);
         resolve(recipeData.data.recipes);
