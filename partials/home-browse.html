@@ -16,8 +16,8 @@
         <a ng-click= "viewRecipe(recipe.recipe_id)">
             <div class="card-image">
                   <img src={{recipe.image_url}}>
-                  <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red">
-                  <i class="material-icons">favorite_border</i>
+                  <a ng-click="saveRecipe(recipe)" class="btn-floating right halfway-fab waves-effect waves-light  fave">
+                  <i class="material-icons">bookmark</i>
                   </a>
             </div>
           <div class="card-content">
@@ -35,8 +35,8 @@
         <a ng-click= "viewRecipe(recipe.recipe_id)">
             <div class="card-image">
                   <img src={{recipe.image_url}}>
-                  <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red">
-                  <i class="material-icons">favorite_border</i>
+                  <a ng-click="saveRecipe(recipe)" class="btn-floating right halfway-fab waves-effect waves-light fave">
+                  <i class="material-icons">bookmark</i>
                   </a>
             </div>
           <div class="card-content">
@@ -49,24 +49,6 @@
     </div> <!--ng-repeat-->
   </div><!--column-->
 
-    <div class="col s4" ng-repeat="recipe in recipes">
-      <div class="card">
-        <a ng-click= "viewRecipe(recipe.recipe_id)">
-            <div class="card-image">
-                  <img src={{recipe.image_url}}>
-                  <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red">
-                  <i class="material-icons">favorite_border</i>
-                  </a>
-            </div>
-          <div class="card-content">
-                  <span class="card-title">{{recipe.title}}</span>
 
-                <p><a href={{recipe.publisher_url}} target="_blank"> {{recipe.publisher}}</a></p>
-          </div>
-        </a><!--link to single view-->
-      </div> <!--card -->
-    </div> <!--ng-repeat-->
-  </div><!--column-->
-</div><!--row-->
 
 
