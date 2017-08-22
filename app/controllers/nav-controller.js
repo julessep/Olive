@@ -1,6 +1,5 @@
 'use strict';
-                                                          // 'da heck is this?
-olive.controller("NavController", function($scope, $window, FilterFactory, UserFactory) {
+olive.controller("NavController", function($scope, $window, UserFactory) {
 
   $scope.isLoggedIn = false;
 

@@ -19,4 +19,40 @@
         </div> <!--card -->
       </div> <!--ng-repeat-->
     </div>   
+
+       <div class="col s4" >
+      <div ng-repeat="recipe in savedRecipes">
+        <div class="card">
+          <a ng-click= "viewRecipe(recipe.recipe_id)">
+              <div class="card-image">
+                    <img src={{recipe.image_url}}>
+                    <!-- don't need button because saved recipes are in final resting place -->
+                    <!-- <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a> -->
+              </div>
+            <div class="card-content">
+              <span class="card-title">{{recipe.title}}</span>
+              <p><a href={{recipe.publisher_url}} target="_blank"> {{recipe.publisher}}</a></p>
+            </div>
+          </a><!--link to single view-->
+        </div> <!--card -->
+      </div> <!--ng-repeat-->
+    </div>   
+
+       <div class="col s4" >
+      <div ng-repeat="recipe in savedRecipes">
+        <div class="card">
+          <a ng-click= "viewRecipe(recipe.recipe_id)">
+              <div class="card-image">
+                    <img src={{recipe.image_url}}>
+                    <!-- don't need button because saved recipes are in final resting place -->
+                    <!-- <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a> -->
+              </div>
+            <div class="card-content">
+              <span class="card-title">{{recipe.title}}</span>
+              <p><a href={{recipe.publisher_url}} target="_blank"> {{recipe.publisher}}</a></p>
+            </div>
+          </a><!--link to single view-->
+        </div> <!--card -->
+      </div> <!--ng-repeat-->
+    </div>   
 </div><!--row-->
