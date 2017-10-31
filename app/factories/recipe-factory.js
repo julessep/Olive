@@ -6,13 +6,11 @@ let currentSavedId = "";
 let currentRecipe = {};
 // ********** from API ***********
 
-// just to get the single recipe after initial search
+// get the single recipe after initial search
 let getSingleRecipe = (recipe_id) => {
   return $q( ( resolve, reject) => {
-    // do I need to put in the user search here or can I do it in a different function
     $http.get(`http://localhost:5000/api/get/${recipe_id}`)
       .then( (recipeData) => {
-        // how do I get the recipe id?
         currentRecipe = recipeData.data.recipe;
         console.log("current recipe?", currentRecipe);
         resolve(recipeData);
@@ -27,10 +25,8 @@ let getSingleRecipe = (recipe_id) => {
 // user search by keyword 
 let searchRecipes = (searchText) => {
   return $q( ( resolve, reject) => {
-    // do I need to put in the user search here or can I do it in a different function
     $http.get(`http://localhost:5000/api/search/'${searchText}'`)
       .then( (recipeData) => {
-        // console.log(recipeData.data.recipes);
         resolve(recipeData.data.recipes);
       })
       .catch( (err) => {
@@ -40,10 +36,10 @@ let searchRecipes = (searchText) => {
   });
 };
 
+// gets top 20 recipes from food2fork
 let getTrendingRecipes = () => {
   return $q( ( resolve, reject) => {
-    // do I need to put in the user search here or can I do it in a different function
-    $http.get(`http://localhost:5000/api/search/'taco'`)
+    $http.get(`http://localhost:5000/api/search/'thanksgiving'`)
       .then( (recipeData) => {
         console.log(recipeData.data.recipes);
         resolve(recipeData.data.recipes);
@@ -59,14 +55,6 @@ let getCurrentRecipe = () => {
   return currentRecipe;
 };
 
-  // let setSavedId = (savedId) => {
-  //   currentSavedId = savedId;
-  //   console.log("?", currentSavedId);
-  // };
-
-  // let getSavedId = () => {
-  //   return currentSavedId;
-  // };
 // ****** from Firebase ******
 
 let getSavedList = (userId) => {
@@ -97,7 +85,7 @@ let postSaveRecipe = (newSave) => {
 };
 
 let deleteSavedRecipe = (savedId) => {
-console.log("savedId", savedId);
+// console.log("savedId", savedId);
 return $q( (resolve, reject) => {
   if (savedId) {
     $http.delete(`${FirebaseUrl}favorites/${savedId}.json`)
