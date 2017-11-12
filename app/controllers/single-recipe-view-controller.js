@@ -27,29 +27,6 @@ $scope.saveRecipe = (recipe) => {
     });
   };
 
-
-  // gets recipes by recipe ID
-  // function fetchSingleRecipe() {
-  //   console.log("Fetch");
-  //   let recipeArr = [];
-  //   RecipeFactory.getSingleRecipe()
-  //   .then( (recipes) => {
-  //     angular.forEach(recipes, function (obj){
-  //       recipeArr.push(obj);
-  //     });
-  //   console.log(recipeArr);
-  //   $scope.recipe = recipeArr;
-  //   })
-  //   .catch( (err) => {
-  //     console.log("error!", err);
-  //   });
-  // }
-
-  // $scope.viewRecipe = (recipeId) => {
-  //       console.log("viewRecipe clicked");
-  //       $window.location.href = `#!/browse/${recipeId}`;
-  //   };
-
   $scope.recipe = () => {
     console.log("recipe");
     RecipeFactory.getCurrentRecipe();

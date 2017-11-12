@@ -1,11 +1,8 @@
 <!-- show search results here -->
 <div class="col-xs-6 searchBox">
   <div class="input-group">
-    <input type="text" class="form-control searchbox" placeholder="Search by name ingredient, diet type..." ng-model="searchText">
-<!--    <span class="input-group-btn">
-      <button ng-click="searchAllRecipes()" > search </button>
-    </span> -->
-    <a ng-click="searchAllRecipes()" class="waves-effect waves-light btn black">search</a>
+    <input type="text" class="form-control searchbox" placeholder="Search by name, diet type or ingredient ..." ng-model="searchText">
+    <a ng-click="searchAllRecipes()" class="waves-effect waves-light btn green">search</a>
   </div>
 </div>
 
@@ -15,13 +12,13 @@
       <div class="card">
         <a ng-click= "viewRecipe(recipe.recipe_id)">
             <div class="card-image">
-                  <img src={{recipe.image_url}}>
-                  <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red">
-                  <i class="material-icons">favorite_border</i>
-                  </a>
+              <img src={{recipe.image_url}}>
+              <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red heart">
+              <i class="material-icons">favorite_border</i>
+              </a>
             </div>
-          <div class="card-content">
-                  <span class="card-title">{{recipe.title}}</span>
+          <div class="card-content ">
+                  <h4 class="card-title cardTitle">{{recipe.title}}</h4>
 
                 <p><a href={{recipe.publisher_url}} target="_blank"> {{recipe.publisher}}</a></p>
           </div>
@@ -34,15 +31,14 @@
       <div class="card">
         <a ng-click= "viewRecipe(recipe.recipe_id)">
             <div class="card-image">
-                  <img src={{recipe.image_url}}>
-                  <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red">
-                  <i class="material-icons">favorite_border</i>
-                  </a>
+              <img src={{recipe.image_url}}>
+              <a ng-click="saveRecipe(recipe)" class="btn-floating halfway-fab waves-effect waves-light red">
+              <i class="material-icons">favorite_border</i>
+              </a>
             </div>
           <div class="card-content">
-                  <span class="card-title">{{recipe.title}}</span>
-
-                <p><a href={{recipe.publisher_url}} target="_blank"> {{recipe.publisher}}</a></p>
+            <span class="card-title">{{recipe.title}}</span>
+            <p><a href={{recipe.publisher_url}} target="_blank"> {{recipe.publisher}}</a></p>
           </div>
         </a><!--link to single view-->
       </div> <!--card -->

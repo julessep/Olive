@@ -39,10 +39,8 @@ olive.factory('UserFactory', function($q, $http, FirebaseUrl, FBCreds) {
       });
     });
     };
-  // console.log("currentUser", currentUser);
 
   let getUser = () => {
-    // console.log("currentUser", currentUser);
     return currentUser;
   };
 

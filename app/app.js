@@ -2,7 +2,7 @@
 
 let olive = angular.module("Olive", ["ngRoute"])
 .constant('FirebaseUrl', 'https://olive-e9b6c.firebaseio.com/')
-.constant("Food2ForkUrl", "http://food2fork.com/api/");
+.constant("Food2ForkUrl", "https://food2fork.com/api/");
 
 let isAuth = (UserFactory)  => {
   return new Promise( (resolve, reject) => {
